@@ -1,0 +1,81 @@
+XMON - An interactive X protocol monitor
+
+Version 1.5.4
+
+ABOUT XMON
+==========
+
+Xmon interactively monitors the byte-stream connections between an X
+server and a number of X clients.  Xmon recognises all requests,
+events, errors and replies sent between the clients and the server
+which are part of the core X protocol.  The contents of these messages
+are displayed on standard output at a user settable degree of detail
+from none to every bit and byte.  Xmon also allows the user to select
+a number of requests or events to be monitored at a different degree
+of detail.  Xmon will also block the transmission of selected requests
+from the clients to the server and selected events from the server to
+the clients.  Xmon also keeps statistics of the number of requests,
+events, and errors received.
+
+Xmon is made up of two separate processes.  The core of xmon is xmond
+which monitors the X protocol streams and displays the protocol
+messages on standard output.  The interactive interface is handled by
+xmonui.  These two processes communicate via a pipe from the standard
+output of xmonui to the standard input of xmond.
+
+The following diagram shows the relationships between xmonui and
+xmond, and the clients and the server.
+
+                          ----------
+                          | xmonui |
+                          ----------
+                              |
+                              v
+     ------------         ----------
+     | client 1 |<------->|        |
+     ------------         |        |       ----------
+          :               | xmond  |<----->| server |
+          :               |        |       ----------
+     ------------         |        |
+     | client n |<------->|        |
+     ------------         ----------
+                              |
+                              v
+                    monitor output to stdout
+
+In the diagram the vertical connections are pipes and the horizontal
+connections are normal X socket connections.
+
+Xmond sits transparently between the X clients and an X server.  To
+the clients it behaves just like an X server and to the server it
+behaves just like a number of X clients.
+
+If you want to read more about xmon, look at the manual page in
+xmon.man.
+
+
+HOW TO BUILD XMON
+=================
+
+To make xmon first make the Makefile. If you have xmkmf, then
+use it to create the Makefile.
+
+If you don't have xmkmf, then use imake to make a Makefile.
+
+If you don't have imake, then rename the file Makefile.std to
+Makefile and see if that works.  If not, you may need to modify
+the Makefile.  Read the comments at the top for help and let me
+know if you need to make changes so I can add them in for others.
+
+When you have finished the Makefile, type
+    make
+to make the two programs xmond and xmonui.
+
+Run xmon with the command
+    ./xmonui | ./xmond
+
+See the manual page for the available options.
+
+Please send any reports to
+    gregm@nms.otc.com.au
+

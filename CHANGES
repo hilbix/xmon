@@ -1,0 +1,234 @@
+Changes made to xmon.
+
+==============================================================================
+
+4 September 1990
+Initial release of xmon to comp.sources.x Volume 9, Issue 15-19.
+
+==============================================================================
+
+10 September 1990
+Patch 1 released to comp.sources.x Volume 9, Issue 30.
+
+  Long lines in the Imakefile were folded by the news software.
+
+  It should now compile on SYSV.  You'll need to use -DSYSV.
+
+  It should now compile on machines that allow more than 128 open
+  files.
+
+==============================================================================
+
+8 October 1990
+Patch 2 released to comp.sources.x Volume 9, Issue 75.
+
+  Synthetic events (events sent by XSendEvent) are handled correctly.
+
+  There was a bug in version 1 when a client exited.
+
+  Byte swapping is now handled correctly.
+
+  Some minor code clean up.
+
+==============================================================================
+
+13 November 1990
+Patch 3 released to comp.sources.x Volume 10, Issue 70.
+
+  The number of bytes in each network protocol packet can be
+  displayed.
+
+  Can initialize xmond from a setup file.  (Useful for testing
+  clients.)
+
+  Synthetic events are monitored correctly.
+
+  The default server is taken from the DISPLAY environment variable.
+
+  Don't need to use -Bstatic compiler flag on Suns.
+
+  Xmond doesn't need to link to Xt or Xaw libraries.
+
+  Will now compile on Sony's RISC based 3710 system under SVR4.
+
+  Manual page updated to reflect above changes.
+
+==============================================================================
+
+3 October 1990
+Patchlevel 4 sent to MIT for inclusion in X11R5 contrib tape.
+
+  More rigorous socket handling.
+
+  Can use numerical network address as display name.
+
+==============================================================================
+
+9 January 1996
+Release of version 1.4
+
+  Released to ftp://ftp.x.org/contrib/devel_tools/xmon.1.4.tar.gz
+    because X11R5 contrib tape was getting hard to find untarred.
+
+  Moved to version numbering scheme rather than patchlevel.
+
+  Removed all X libs from xmond build.
+
+==============================================================================
+
+26 February 1996.
+Release of version 1.5
+
+  Added CHANGES file.
+
+  HPUX gets MaxFD the same way as SVR4.  (David Thompson)
+
+  Solaris requires <sys/filio.h> to get FIONBIO, FIONCLEX, etc. 
+  (David Thompson)
+
+  Moved x11.h and common.h into xmond.h to fix problems with ordering
+  of x11.h and xmond.h.  (David Thompson)
+
+  Redefined references to bzero, bcopy and index for SVR4 to make
+  Solaris happy.  (David Thompson)
+
+  Fixed bugs where xmond did not handle long requests or replies. 
+  (Mike Tozer)
+
+  Fixed various cast problems found by lint.
+
+  Added support for counting extended requests, errors and events.
+
+  Added ability to print raw bytes and optionally not perform any other
+    analysis of messages.
+
+  Added ability to show the number of bytes in each packet received.
+
+  Now prints number of buffered bytes on EOF.
+
+  Sequence number now prints in hex.
+
+  Fixed printing of GetModifierMapping reply.
+
+  Fixed output for PolyText which contains font-shifts.
+
+  Fixed bug with long PutImage requests.
+
+  Removed useless signal catching.
+
+  Made unfinished attempt at event record and playback.
+
+==============================================================================
+
+1 March 1996
+Release of version 1.5.1
+
+  Fixed mallocs in widgeti.c and xmonui.c.  Forgot to add 1 for '\0'!. 
+  Purified xmond and xmonui and found no more memory problems.  (Marty
+  Leisner)
+
+==============================================================================
+
+10 March 1996
+
+  Added Makefile.std to help those without imake. (David Denholm)
+
+20 March 1996
+
+  Fixes for setsockopt() under linux. (Marty Leisner)
+
+  Removed weird continuation lines caused many years ago when I
+  submitted the source to comp.sources.x and the lines were wrapped by
+  the mailer.  It caused lots of problems!  On Marty Leisner's
+  prompting, I have removed all remaining traces.  Another bit of
+  net.history fades away.
+
+  Fixed bug when select() returns both client and server file
+  descriptors in the same call and the first one processed has EOF. 
+  Both file descriptors are closed and their input handlers are set to
+  NULL.  In the old code, the NULL input handler was called for the
+  second file descriptor.
+
+  Fixed freed memory access bug in CloseConnection when uning -debug
+  option.
+
+  Fixed bug in processing of -server option.
+
+  Port numbers are now allowed to be negative, indicating that the
+  port number is not relative to 6000.  The real port number is the
+  absolute value of the number.
+
+  Added -ascii option.
+
+  Added note about security and "xhost +" to manual page.
+
+30 March 1996
+
+  Added note about event recording and playback to manual page.
+
+==============================================================================
+
+30 March 1996
+Release of version 1.5.2
+
+==============================================================================
+
+9 April 1996
+
+  Fixed bug printing sequence numbers when xmond runs on a big-endian machine
+  and the client runs on a little-endian machine. (David Denholm)
+
+  Sequence numbers are always printed in hex, even when reporting unknown
+  extended requests or unexpected replies. (David Denholm)
+
+  Unexpected replies and unknown extended messages are dumped in hex
+  if the error verbose level is "hex".  (David Denholm)
+
+  Fixed bug in PrintString8 and PrintString16 when length of string
+  was too large to fit into a short integer.
+
+==============================================================================
+
+9 April 1996
+Release of version 1.5.3
+
+==============================================================================
+
+10 April 1996
+
+  Fixed bug in calls to PrintENUMERATED in decode11.c when running on
+  a big-endian machine with a little-endian client. (David Denholm)
+
+5 February 1997
+  Added delay when replaying events so that replay is more real-time
+  rather than sped up.  Also included a copy of usleep.c for those
+  whose C library does not contain it.  (Marc Vertes)
+
+  Fixed Imakefile to avoid creating install.man targets for manuals
+  that don't exist and to use cc on aix.  Fixed include files for aix. 
+  (Noel Hunt)
+
+  Fixed bug in PrintString16() and PrintTextList16() where xmon
+  incorrectly assumed the length field in the request was in bytes
+  rather than double-byte characters.  (Richard Verhoeven)
+
+  Fixed some problems with the prototypes using the Sun SC 4.0
+  compiler. Also fixed several ANSI usage compiler warnings. (Reg Beardsley)
+
+  Standard output is now flushed regularly so that output to a viewer
+  such as xless will not lag.
+
+  Modified PrintString8() to split long strings over several lines. 
+  This means that a long X Resource string returned by GetProperty
+  does not appear on one line (xless can not handle it). 
+
+  Fixed bug in ReplayEvent() under SVR4 where it called memcpy()
+  instead of memmove() and thus corrupting playback buffer.
+
+==============================================================================
+
+7 February 1997
+Release of version 1.5.4
+
+==============================================================================
+

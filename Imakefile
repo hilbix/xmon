@@ -1,0 +1,35 @@
+LOCAL_LIBRARIES1 = 
+LOCAL_LIBRARIES2 = $(XAWLIB) $(XMULIB) $(XTOOLLIB) $(EXTENSIONLIB) $(XLIB)
+
+# On aix3.2 xlc doesn't like the conflict between the function
+# prototypes in xmond.h (created because __STDC__ is defined) and the
+# old-style declarations in the source files.  Use cc instead.
+#ifdef AIXArchitecture
+CC = cc
+#endif
+
+CDEBUGFLAGS = -g
+
+# Uncomment the following lines to include event recording and playback.
+# If your standard C library does not contain the usleep function, you
+# may need to add usleep.o to RECORDING_OBJ.
+#
+#   DEFINES = -DRECORD_EVENTS
+#   RECORDING_OBJ = recording.o
+
+OBJS1 = decode11.o linkl.o print11.o server.o fd.o main.o prtype.o table11.o \
+	$(RECORDING_OBJ)
+
+OBJS2 = widgeti.o xmonui.o
+
+XMON = xmond xmonui
+
+AllTarget($(XMON))
+
+NormalProgramTarget(xmond,$(OBJS1),,$(LOCAL_LIBRARIES1),)
+NormalProgramTarget(xmonui,$(OBJS2),XawClientDepLibs,$(LOCAL_LIBRARIES2),)
+
+InstallProgram(xmond,$(BINDIR))
+InstallProgram(xmonui,$(BINDIR))
+InstallManPage(xmon,$(MANDIR))
+InstallManPageAliases(xmon,$(MANDIR),$(XMON))

@@ -1,0 +1,49 @@
+# Example makefile for xmon, if imake is not available
+
+# Set this to your C compiler
+CC = gcc
+
+# If you have a system five unix, you may need to define one of these
+# DEFINES = -DSYSV
+# DEFINES = -DSVR4
+DEFINES = -DSYSV -DSVR4
+
+# Set this to -g for debugging
+CDEBUGFLAGS = -O
+
+# If you have AIX, you may need to define this to force inclusion of
+# sys/select.h
+# DEFINES = -D_BSD
+
+# The libraries required for sockets
+SOCKLIBS = -lsocket -lnsl  
+
+# The location of the X include files
+XINCDIRS = -I/usr/openwin/include
+
+# Where your X libraries are
+XLDFLAGS = -L/usr/dt/lib -L/usr/openwin/lib
+
+# The libraries required for Athena widgets
+XLIBS = -lXaw -lXt -lXm -lXmu -lXext -lX11
+
+# ----------------------------------------------------------------------------
+
+# You should not need to modify below here
+
+CFLAGS = $(CDEBUGFLAGS) $(DEFINES) $(XINCDIRS)
+
+OBJS1 = decode11.o linkl.o print11.o server.o fd.o main.o prtype.o table11.o
+
+OBJS2 = widgeti.o xmonui.o
+
+all : xmond xmonui
+
+xmond : $(OBJS1)
+	$(CC) -o xmond $(OBJS1) $(SOCKLIBS)
+
+xmonui : $(OBJS2)
+	$(CC) -o xmonui $(OBJS2) $(XLDFLAGS) $(XLIBS) $(SOCKLIBS)
+
+clean :
+	$(RM) xmond xmonui $(OBJS1) $(OBJS2)
