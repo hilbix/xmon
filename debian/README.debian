@@ -1,7 +1,7 @@
 xmon for DEBIAN
 ----------------------
 
-Don't forget to add an authentification cookie for your pseudo server
+Don't forget to add an authentication cookie for your pseudo server
 before starting it:
 
 $ xauth add localhost:42 . `mcookie`

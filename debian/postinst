@@ -1,7 +1,0 @@
-#!/bin/sh -e
-
-if [ "$1" = "configure" ]; then
-    if [ -d /usr/doc -a ! -e /usr/doc/xmon -a -d /usr/share/doc/xmon ]; then
-	ln -sf ../share/doc/xmon /usr/doc/xmon
-    fi
-fi

@@ -1,9 +1,9 @@
 Source: xmon
 Section: x11
-Priority: extra
+Priority: optional
 Maintainer: Filip Van Raemdonck <mechanix@debian.org>
 Standards-Version: 3.2.1.0
-Build-Depends: debmake, libxaw-dev, xlibs-dev, xutils
+Build-Depends: debmake, libxaw7-dev, xutils
 
 Package: xmon
 Architecture: any

@@ -1,3 +1,16 @@
+xmon (1.5.6-1.3) unstable; urgency=low
+
+  * Change priority to optional to match the archive overrides file;
+    pass -isp to dpkg-gencontrol to make lintian happy.
+  * Remove the postinst and prerm which were only used to handle the /usr/doc
+    symlink anymore.
+  * Add a note in the manpage about xhost, xauth and security. (Closes: #78598)
+  * Explicitly builddepend on libxaw7-dev. (Closes: #169985)
+  * Save errno before calling perror, supposedly the latter is allowed to
+    change the former. (Closes: #174792)
+
+ -- Filip Van Raemdonck <mechanix@debian.org>  Thu, 02 Jan 2003 21:03:18 +0100
+
 xmon (1.5.6-1.2) unstable; urgency=low
 
   * New maintainer. (Closes: #89721)

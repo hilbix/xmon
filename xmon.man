@@ -384,20 +384,30 @@ It half works.  Good luck.
 .SH BUGS
 No provision is included for extensions to the base protocol.
 .PP
-Xmon only handles TCP socket connections.
+Xmon only handles TCP socket connections;
 UNIX domain sockets and DECnet are not supported.
 .PP
 There should be a better way of initialising the state of xmond and having
 this new state reflected in xmonui.
 .PP
 Because of the security method used by your X server, it may reject
-connection attempts made by xmond.  A work-around is to run
+connection attempts made by xmond.  A possible work-around is to try
+setting the authorization information for the client using xauth; an
+example use would be
+
+xauth add dolphin:1 MIT-MAGIC-COOKIE-1 <magic-cookie>
+
+where <magic-cookie> is to be replaced by the cookie that should normally
+be used to connect to the X server xmond is talking too (xmond will pass
+the authentication information on). Check the manpage of xauth for more
+information about authorization. If all else fails, you can try running
 
 xhost +
 
-to force the X server to accept all connections.
+to force the X server to accept all connections, but beware that doing so
+is a very bad idea security wise.
 .SH SEE ALSO
-X(1)
+X(1), xauth(1)
 .PP
 X Window System Protocol, MIT X Consortium Standard, X Version 11, Release 4,
 by Robert W. Scheifler.

@@ -1206,10 +1206,14 @@ ConnectToServer(hostName)
 
     if (connect(ServerFD, (struct sockaddr *)&sin, sizeof(sin)) < 0)
 	{
-	    debug(4,(stderr, "connect returns errno of %d\n", errno));
+		int e = errno;
 	    if (errno != 0)
 		perror("connect");
-	    switch (errno)
+		if (errno != e) {
+			fprintf (stderr, "perror clobbered errno\n");
+		}
+	    debug(4,(stderr, "connect returns errno of %d\n", e));
+	    switch (e)
 		{
 		case ECONNREFUSED:
 		    /* experience says this is because there is no Server
@@ -1219,7 +1223,7 @@ ConnectToServer(hostName)
 		    panic("Can't open connection to Server (ECONNREFUSED)");
 		default:
 		    close(ServerFD);
-		    fprintf(stderr, "errno = %d: ", errno);
+		    fprintf(stderr, "errno = %d: ", e);
 		    panic("Can't open connection to Server");
 		}
 	}
