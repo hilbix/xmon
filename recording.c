@@ -52,7 +52,7 @@
 
 /* function prototypes: */
 /* recording.c: */
-extern void usleep P((unsigned int useconds ));
+//extern void usleep P((unsigned int useconds ));
 
 /* end function prototypes */
 

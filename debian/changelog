@@ -1,0 +1,46 @@
+xmon (1.5.6-1.2) unstable; urgency=low
+
+  * New maintainer. (Closes: #89721)
+  * Changed Build-Depends for XFree 4.0; added debmake.
+
+ -- Filip Van Raemdonck <mechanix@debian.org>  Sun, 25 Mar 2001 14:30:53 +0200
+
+xmon (1.5.6-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Fixed syntax error in Build-Depends, fixes Bug#81204.
+  * recording.c:55 commented out.
+
+ -- Lenart Janos <ocsi@debian.org>  Sat, 24 Feb 2001 02:10:40 +0100
+
+xmon (1.5.6-1) unstable; urgency=low
+
+  * updated Standards-Version and added Build-Depends.
+  * new upstream version.
+  
+ -- Frederic Lepied <Lepied@debian.org>  Sat, 23 Dec 2000 13:23:42 +0000
+
+xmon (1.5.5-1) unstable; urgency=low
+
+  * new upstream version. Closes: Bug#40862.
+
+ -- Frederic Lepied <Lepied@debian.org>  Sun, 17 Oct 1999 08:42:21 +0200
+
+xmon (1.5.4-3) unstable; urgency=low
+
+  * compiled with xlib6g (bug #12820).
+
+ -- Frederic Lepied <Lepied@debian.org>  Fri, 12 Sep 1997 18:16:25 +0200
+
+xmon (1.5.4-2) unstable; urgency=low
+
+  * compiled with libc6.
+
+ -- Frederic Lepied <Lepied@debian.org>  Sun,  6 Jul 1997 09:10:24 +0200
+
+xmon (1.5.4-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Frederic Lepied <Lepied@debian.org>  Wed, 28 May 1997 21:00:59 +0200
+

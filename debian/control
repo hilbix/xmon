@@ -1,0 +1,15 @@
+Source: xmon
+Section: x11
+Priority: extra
+Maintainer: Filip Van Raemdonck <mechanix@debian.org>
+Standards-Version: 3.2.1.0
+Build-Depends: debmake, libxaw-dev, xlibs-dev, xutils
+
+Package: xmon
+Architecture: any
+Depends: ${shlibs:Depends}
+Description: An interactive X protocol monitor
+ Xmon interactively monitors the byte-stream connections between an X
+ server and a number of X clients.  Xmon recognises all requests,
+ events, errors and replies sent between the clients and the server
+ which are part of the core X protocol.

@@ -1,0 +1,10 @@
+xmon for DEBIAN
+----------------------
+
+Don't forget to add an authentification cookie for your pseudo server
+before starting it:
+
+$ xauth add localhost:42 . `mcookie`
+$ xmonui | xmond -port 42
+
+Frederic Lepied <Lepied@debian.org>, Sun Oct 17 09:02:34 1999

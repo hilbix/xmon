@@ -75,8 +75,10 @@ static void SignalTERM P((int n ));
 static Bool ANYSET P((long *src));
 #endif
 
+#ifndef __linux__
 extern char *getenv();
 extern int gethostname P((char *name, int namelen ));
+#endif
 
 /* end function prototypes */
 
