@@ -1,3 +1,21 @@
+xmon (1.5.6-1.5) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Use debhelper instead of debmake.  Thanks to Julien Danjou for the
+    preliminary patch (I reversed several changes not really suited to an
+    NMU though).  Closes: #368017.
+  * debian/rules: Add support for DEB_BUILD_OPTIONS=noopt.
+  * Conforms to Standards version 3.7.2.
+
+ -- Matej Vela <vela@debian.org>  Sun, 28 May 2006 14:18:53 -0500
+
+xmon (1.5.6-1.4) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Transition from /usr/X11R6 to /usr.  Closes: #366527.
+
+ -- Matej Vela <vela@debian.org>  Thu, 18 May 2006 13:47:07 -0500
+
 xmon (1.5.6-1.3) unstable; urgency=low
 
   * Change priority to optional to match the archive overrides file;
