@@ -7,7 +7,7 @@
  *
  * This is the beginning of a client-side X event record/playback
  * program.  If you finish it let me know.
- *    - gregm@nms.otc.com.au
+ *    - gregm@iname.com
  *
  * Modified by Marc Vertes 18-jul-96 to record and replay delays
  * between events - mvertes@thomson.starway.net.au
@@ -18,7 +18,7 @@
 
   Please find hereafter my small contribution to your xmon program:
   I added the ability to record and replay delays between X events in
-  xmond (I use the version 1.5.3).
+  xmond.
   The result is that the replay is now more realistic :-). Sometime, the
   replay is still waiting for ever (I didn't change the algorithm to send 
   events).

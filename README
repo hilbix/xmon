@@ -1,7 +1,5 @@
 XMON - An interactive X protocol monitor
 
-Version 1.5.4
-
 ABOUT XMON
 ==========
 
@@ -54,6 +52,13 @@ If you want to read more about xmon, look at the manual page in
 xmon.man.
 
 
+WHERE CAN I GET IT?
+==================
+
+Xmon is available for ftp from:
+  ftp://ftp.x.org/contrib/devel_tools/
+
+
 HOW TO BUILD XMON
 =================
 
@@ -77,5 +82,5 @@ Run xmon with the command
 See the manual page for the available options.
 
 Please send any reports to
-    gregm@nms.otc.com.au
+    gregm@iname.com
 

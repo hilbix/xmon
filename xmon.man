@@ -407,4 +407,4 @@ written by James L Peterson, MCC.
 .PP
 Please send any bug reports or modifications to
 .PP
-    gregm@nms.otc.com.au
+    gregm@iname.com

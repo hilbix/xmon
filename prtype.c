@@ -45,7 +45,7 @@ static void DumpAsciiBuffer P((unsigned char *buf , long n ));
 
 extern int		    CurrentVerbose;
 extern int		    debuglevel;
-extern int		    littleEndian;
+extern Bool		    littleEndian;
 extern Bool		    AsciiOutput;
 
 static char Leader[MaxIndent + 1];
@@ -183,7 +183,7 @@ PrintINT8(buf)
     /* print a INT8 -- 8-bit signed integer */
     short   n = IByte (buf);
     if (n > 127)
-	n = 256 - n;
+	n -= 256;
     fprintf(stdout, "%d", n);
     return 0;
 }
@@ -195,7 +195,7 @@ PrintINT16(buf)
     /* print a INT16 -- 16-bit signed integer */
     long    n = IShort (buf);
     if (n > 32767)
-	n = 65536 - n;
+	n -= 65536;
     fprintf(stdout, "%ld", n);
     return 0;
 }
@@ -959,7 +959,7 @@ PrintValues(control, clength, ctype, values, name)
 #else
 		    short m;
 		    if (littleEndian)
-			m=0;
+			m = 0;
 		    else
 			m = 4 - p->Length;
 #endif

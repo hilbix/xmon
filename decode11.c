@@ -1080,11 +1080,12 @@ DecodeEvent(server, buf, n, real_event)
     Bool		    real_event;
 {
     short		    Event = IByte (&buf[0]) & 0x7f;
-    int			    fd = server->fdd->fd;
+    int			    fd;
     Bool		    extended_event = False;
 
     if (real_event)
     {
+	fd = server->fdd->fd;
 	SetIndentLevel(PRINTSERVER);
 
 	if (Event != 11 /* KeymapNotify */)

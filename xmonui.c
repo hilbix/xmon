@@ -408,7 +408,7 @@ char **argv;
 /* header */
     widget = create_label
     (
-	form, widget, NULL, 0,0,"               Xmon - X protocol monitor version 1.5.4"
+	form, widget, NULL, 0,0,"               Xmon - X protocol monitor"
     );
 
 

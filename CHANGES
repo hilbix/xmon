@@ -232,3 +232,25 @@ Release of version 1.5.4
 
 ==============================================================================
 
+2 May 1997
+  Added ftp site information to README file. (suggested by David Denholm)
+
+  Fixed bug in PrintINT16() and PrintINT8() in file prtype.c when
+  displaying negative numbers, such as event-x and event-y fields in
+  MotionNotify events.  (David Denholm)
+
+11 May 1997
+  Fixed bug in DecodeEvent() when called from PrintEVENTFORM().  A
+  null pointer (Server *) was being dereferenced.  (Peter Cupit)
+
+29 August 1999
+  Fixed bug in prtype.c where littleEndian was declared int rather
+  than Bool. (Andrew Morrow)
+
+==============================================================================
+
+29 August 1999
+Release of version 1.5.5
+
+==============================================================================
+
