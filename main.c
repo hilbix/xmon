@@ -324,6 +324,7 @@ int			iport;
 #endif
     int			   ConnectionSocket;
     struct sockaddr_in	  sin;
+    int yes = 1;
 
     enterprocedure("SetUpConnectionSocket");
 
@@ -335,14 +336,14 @@ int			iport;
 	    exit(-1);
 	}
     (void)setsockopt(ConnectionSocket, SOL_SOCKET, SO_REUSEADDR,
-        (char *)NULL, 0);
+        (char*)&yes, sizeof(yes));
 #ifdef SO_USELOOPBACK
     (void)setsockopt(ConnectionSocket, SOL_SOCKET, SO_USELOOPBACK,
-        (char*)NULL,0);
+        (char*)&yes, sizeof(yes));
 #endif
 #ifdef SO_DONTLINGER
     (void)setsockopt(ConnectionSocket, SOL_SOCKET, SO_DONTLINGER,
-	(char*)NULL, 0);
+	(char*)&yes, sizeof(yes));
 #endif
 
     /* define the name and port to be used with the connection socket */
@@ -1136,6 +1137,7 @@ ConnectToServer(hostName)
     struct sockaddr_in	sin;
     struct hostent *hp;
     unsigned long hostinetaddr;
+    int yes = 1;
 
     enterprocedure("ConnectToServer");
 
@@ -1148,12 +1150,15 @@ ConnectToServer(hostName)
 	    debug(1,(stderr, "socket failed\n"));
 	    panic("Can't open connection to Server");
 	}
-    (void) setsockopt(ServerFD, SOL_SOCKET, SO_REUSEADDR,  (char *) NULL, 0);
+    (void) setsockopt(ServerFD, SOL_SOCKET, SO_REUSEADDR,
+	(char*)&yes, sizeof(yes));
 #ifdef SO_USELOOPBACK
-    (void) setsockopt(ServerFD, SOL_SOCKET, SO_USELOOPBACK,(char *) NULL, 0);
+    (void) setsockopt(ServerFD, SOL_SOCKET, SO_USELOOPBACK,
+	(char*)&yes, sizeof(yes));
 #endif
 #ifdef SO_DONTLINGER
-    (void) setsockopt(ServerFD, SOL_SOCKET, SO_DONTLINGER, (char *) NULL, 0);
+    (void) setsockopt(ServerFD, SOL_SOCKET, SO_DONTLINGER,
+	(char*)&yes, sizeof(yes));
 #endif
 
     debug(4,(stderr, "try to connect on %s\n", hostName));
