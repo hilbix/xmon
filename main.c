@@ -1209,9 +1209,6 @@ ConnectToServer(hostName)
 		int e = errno;
 	    if (errno != 0)
 		perror("connect");
-		if (errno != e) {
-			fprintf (stderr, "perror clobbered errno\n");
-		}
 	    debug(4,(stderr, "connect returns errno of %d\n", e));
 	    switch (e)
 		{

@@ -1,0 +1,19 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 01_ftbfs-fix-kfreebsd.dpatch by Nico Golde <nion@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: No description.
+
+@DPATCH@
+diff -urNad xmon-1.5.6~/main.c xmon-1.5.6/main.c
+--- xmon-1.5.6~/main.c	2007-03-29 13:15:58.000000000 +0200
++++ xmon-1.5.6/main.c	2007-03-29 13:21:21.000000000 +0200
+@@ -75,7 +75,7 @@
+ static Bool ANYSET P((long *src));
+ #endif
+ 
+-#ifndef __linux__
++#if !defined(__linux__) && !defined(__GLIBC__)
+ extern char *getenv();
+ extern int gethostname P((char *name, int namelen ));
+ #endif

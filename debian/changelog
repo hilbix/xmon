@@ -1,3 +1,13 @@
+xmon (1.5.6-2) unstable; urgency=low
+
+  * QA upload.
+  * Set maintainer to QA group.
+  * Added dpatch as dependency, adapted rules and included patch to
+    fix FTBFS on kfreebsd (Closes: #415666).
+  * Removed obsolete debug code in main.c (Closes: #174792).
+
+ -- Nico Golde <nion@debian.org>  Thu, 29 Mar 2007 13:18:05 +0200
+
 xmon (1.5.6-1.5) unstable; urgency=medium
 
   * Non-maintainer upload.

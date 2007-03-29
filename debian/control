@@ -1,9 +1,9 @@
 Source: xmon
 Section: x11
 Priority: optional
-Maintainer: Filip Van Raemdonck <mechanix@debian.org>
+Maintainer: Debian QA Group <packages@qa.debian.org>
 Standards-Version: 3.7.2
-Build-Depends: debhelper (>= 5), libxaw7-dev, xutils
+Build-Depends: debhelper (>= 5), libxaw7-dev, xutils, dpatch
 
 Package: xmon
 Architecture: any
