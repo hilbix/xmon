@@ -1,3 +1,10 @@
+xmon (1.5.6-3) unstable; urgency=low
+
+  * QA upload.
+  * Replace build-dependency on xutils by xutils-dev (closes: #485718)
+
+ -- Ralf Treinen <treinen@debian.org>  Fri, 13 Jun 2008 23:53:22 +0200
+
 xmon (1.5.6-2) unstable; urgency=low
 
   * QA upload.
